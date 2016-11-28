@@ -3,12 +3,32 @@
 <html>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	</head>
+		
+		<body>
+	
+			<h1><strong>Calculate Materials for Deck</strong></h1>
+		
+		<form>
+			Please enter your board length and width first.<br />
+			<strong>Enter Board Length:</strong>  <input type="text" id="Blength" /><br />
+			<strong>Enter Board Width:</strong>   <input type="text" id="Bwidth" /><br />
+			<br />Now enter the deck Size.<br />
+			<strong>Enter Deck Length:</strong>   <input type="text" id="length" /><br />
+			<strong>Enter Deck Width:</strong>    <input type="text" id="width" /><br />
+			
+			
+			<!-- <br />Your boards are all <span id="bl"> 8 feet </span>  long by 1 ft wide.<br /> -->
+			<!-- assume boards are 8x1 -->
+			<br />You'll need <span id="numberofboards">___</span> 8x1 boards.
+		</form>
+
 		<script>
 			$(document).ready(function(){
 					
-				$("#length, #width, #Blength, #Bwidth").keyup(function () {
-					bl = $("#Blength").val();
-					bw = $("#Bwidth").val();
+				$("#length, #width, #board_length, #board_width").keyup(function () {
+					bl = $("#board_length").val();
+					bw = $("#board_width").val();
 					bArea = bl * bw;
 					
 					l = $("#length").val();
@@ -27,24 +47,5 @@
 			
 
 		</script>
-	</head>
-	<body>
-	
-		<h1>Calculate Materials for Deck</h1>
-		
-		<form>
-			<br />Please enter your board length and width first.<br />
-			<input type="text" id="Blength" />
-			<input type="text" id="Bwidth" />
-			<br />Now enter the deck Size.<br />
-			<input type="text" id="length" />
-			<input type="text" id="width" />
-			
-			
-			<!-- <br />Your boards are all <span id="bl"> 8 feet </span>  long by 1 ft wide.<br /> -->
-			<!-- assume boards are 8x1 -->
-			<br />You need <span id="numberofboards">___</span> 8x1 boards.
-		</form>
-
 	</body>
 </html>
