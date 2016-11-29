@@ -1,0 +1,78 @@
+<!doctype html>
+<!--JS HTML DOM (Document Object Model)
+http://www.w3schools.com/js/js_htmldom.asp
+-->
+<html>
+	<head>
+		<style>
+			#container {
+			width: 400px;
+			height: 400px;
+			position: relative;
+			background: yellow;
+			}
+			#animate {
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				background: red;
+			}
+		</style>
+	</head>
+	
+	<body>
+			EC12_pt. 2
+		<p>
+			<button onclick="myMove()">Push</button>
+		</p>
+		<div id ="container">
+			<div id ="animate">Move</div>
+		</div>
+		
+		<script>
+			// Ordered List
+			document.write("<br /> EC12_pt. 1");
+			var b = document.body;
+			var ul = document.createElement("ul");
+			document.body.appendChild(ul);
+			var li1 = document.createElement("li");
+			var li2 = document.createElement("li");
+			var li3 = document.createElement("li");
+			var li4 = document.createElement("li");
+			var li5 = document.createElement("li");
+			li1.innerHTML = "Alligator";
+			li2.innerHTML = "Bat";
+			li3.innerHTML = "Cat";
+			li4.innerHTML = "Dog";
+			li5.innerHTML = "Elephant";
+			ul.appendChild(li1);
+			ul.appendChild(li2);
+			ul.appendChild(li3);
+			ul.appendChild(li4);
+			ul.appendChild(li5);
+			
+			//Animation
+			function myMove() {
+				var elem = document.getElementById("animate"); 
+				var pos = 350;
+				var id = setInterval(frame, 5);
+				function frame() {
+					if (pos == 0) {
+						clearInterval(id);
+					} else {
+						pos--; 
+						elem.style.top = pos + 'px'; 
+						elem.style.left = pos + 'px'; 
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+

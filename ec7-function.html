@@ -1,0 +1,35 @@
+<doctype html>
+<!-- file: js_test07.html
+-->
+
+<html>
+	<head>
+		<h1><strong>Exercise 07 - JS Functions/Array</strong></h1>
+	</head>
+
+	<body>
+		<label>Enter a Canadian Province:</label>
+		<input type="text" id="inProvince"/>
+		<input type="button" value="Check" onclick="isProvince();" />
+		<p id="output"></p>
+		
+		<script>
+			//Declaring arrays containing Provences to check if input is correct
+			canadianProvince = ["ONTARIO", "QUEBEC", "NOVA SCOTIA", "NEW BRUNSWICK", "MANITOBA", "BRITISH COLUMBIA", "PRINCE EDWARD ISLAND", 
+								"SASKATCHEWAN", "ALBERTA", "NEWFOUNDLAND AND LABRADOR"];
+			function isProvince()
+			{
+				//getting input variable
+				var prov = document.getElementById("inProvince").value.toUpperCase();
+				//declaring ouput variable for ease of reading
+				var output = document.getElementById("output");
+				
+				if(canadianProvince.indexOf(prov) != -1)
+					output.innerHTML = "Province";
+				else
+					output.innerHTML = "Not a Province"; //, but IS a Canadian Territory";
+			}
+		
+		</script>
+	</body>
+</html>
