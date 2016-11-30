@@ -1,29 +1,121 @@
+<!-- code from http://www.w3schools.com/ -->
+
 <html>
+	<body>
 
-<body>
+<p>Click the button to display an alert box:</p>
 
-	<p id="zippy">this is a para.</p>
+<button onclick="alertfunct()">Click Me</button>
+
+<p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="promptfunct()">Press Me</button>
+<p id="demo"></p>
+
+<p>Click the button to display a confirm box.</p>
+
+<button onclick="confirmfunct()">Push Me</button>
+
+<p>Run different math functions.</p>
+<button onclick="runMath()">Mathamatical</button>
+
+<p id="demo"></p>
+NaN<p id="demo1"></p>
+Abs<p id="demo2"></p>
+Ceil<p id="demo3"></p>
+Floor<p id="demo4"></p>
+Max<p id="demo5"></p>
+Min<p id="demo6"></p>
+Power<p id="demo7"></p>
+Round<p id="demo8"></p>
+Sqrt<p id="demo9"></p>
+
+<script>
+function alertfunct() {
+    alert("I am an alert box!");
+}
+
+function promptfunct() {
+    var person = prompt("Please enter your name", "");
+    
+    if (person != null) {
+        document.getElementById("demo").innerHTML =
+        "Hello " + person + "! How are you today?";
+    }
+}
+
+function confirmfunct() {
+    confirm("Press a button!");
+}
+	
+function runMath(){
+mynan();
+myabs();
+myceil();
+myfloor();
+mymax();
+mymin();
+mypower();
+myround();
+mysqrt();
+
+}	
+
+function mynan() {
+    var res = "";
+    res = res + isNaN(123) + ": 123<br>";
+    res = res + isNaN(-1.23) + ": -1.23<br>";
+    res = res + isNaN(5-2) + ": 5-2<br>";
+    res = res + isNaN(0) + ": 0<br>";
+    res = res + isNaN('123') + ": '123'<br>";
+    res = res + isNaN('Hello') + ": 'Hello'<br>";
+    res = res + isNaN('2005/12/12') + ": '2005/12/12'<br>";
+    res = res + isNaN('') + ": ''<br>";
+    res = res + isNaN(true) + ": true<br>";
+    res = res + isNaN(undefined) + ": undefined<br>";
+    res = res + isNaN('NaN') + ": 'NaN'<br>";
+    res = res + isNaN(NaN) + ": NaN<br>";
+    res = res + isNaN(0 / 0) + ": 0 / 0<br>";
+
+	document.getElementById("demo1").innerHTML = res;
+}
+function myabs() {
+    document.getElementById("demo2").innerHTML = Math.abs(-7.25);
+}
 
 
+function myceil() {
+    document.getElementById("demo3").innerHTML = Math.ceil(1.4);
+}
 
+function myfloor() {
+    document.getElementById("demo4").innerHTML = Math.floor(1.6);
+}
+
+function mymax() {
+    document.getElementById("demo5").innerHTML = Math.max(5, 10);
+}
+
+function mymin() {
+    document.getElementById("demo6").innerHTML = Math.min(5, 10);
+}
+
+function mypower() {
+    document.getElementById("demo7").innerHTML = Math.pow(4, 3);
+}
+
+function myround() {
+    document.getElementById("demo8").innerHTML = Math.round(2.5);
+}
+
+function mysqrt() {
+    document.getElementById("demo9").innerHTML = Math.sqrt(9);
+}	
+	
+</script>
 
 </body>
 
-<script>
-
- var x = 5;
- document.write(typeof(x));
- console.log(x);
- 
- var pi = Math.PI;
- console.log(Math.pi);
- console.log(Math.PI);
-
- 
-
-
-
-
-</script>
+</body>
 
 </html>

@@ -1,61 +1,48 @@
 <html>
-
-<body>
-
+	<head>
+		<h1>EC05- Functions and IIFE</h1>
+	</head>
 	
-
-<script>
-
+	<body>
+	 	<!--my own function-->
+		<p>Print out your name.</p>
+		<input type="text" id="name"/> <br />
+		<button onclick="printName()">Print</button> <br /><br />
+		<span id="NAME"></span> <br />
 	
-			function myFun (p1, p2, p3, p4) {
-				document.write("p1: " + p1);
-				document.write("<br />p2: " + p2);
-				document.write("<br />p3: " + p3);
-				document.write("<br />p4: " + p4);
-				return 1;
-			}
-			
-			myFun(); 
-			document.write("<hr />");
-			myFun(1,2,3,"fred"); 
-			document.write("<hr />");
-			myFun(1,2,3,"fred",5,6,7,8); 
-			document.write("<hr />");
-			
-			var f = function () {return "fff";};
-			document.write("<br />" + f);
-			document.write("<br />" + f());
+	<script>
+		function printName() {
+		document.getElementById("NAME").innerHTML = document.getElementById("name").value;
+		}
+	</script>
 
-			document.write("<hr />");
-			myFun(f, f(), "ggggggg", 5);
-			document.write("<hr />");
-			myFun(myFun());
-			
-			
-			
-			var greet = function (zzz) {
-				return "John";
-			}
-			document.write("<hr />");
-			document.write(greet);
-			document.write("<hr />");
-			document.write(greet());
-			
-			
-			function sayGoodbye (zzz) {
-				return "Goodbye, " + zzz;
-			};
-			
-			function sayGoodbye2 (zzz) {
-				return "Goodbye, " + zzz();
-			};
-			console.log(sayGoodbye(greet));
-			console.log(sayGoodbye(greet()));
-			console.log(sayGoodbye2(greet));
-			console.log(sayGoodbye2(greet());
-			
-		</script>
-		
+	<!--run function as parameter-->
+	<p>Refresh page use this page to run the previous function</p>
+	<button onclick="runFunct()">Again</button> <br /><br />
+	<span id="NAME"></span> <br />
+	
+	<script>
+	function runFunct(){
+	printName();
+	}
+	</script>
+	
+	<!--IIFE-->
+	<!--http://www.concretepage.com/javascript/immediately-invoked-function-expression-iife-javascript-tutorial-self-executing-anonymous-function-example-->
+	<script>
+	//this creates an alert box that gives you the sum
+	var a = 5, b= 12; 
+	(function(arg1, arg2){
+	    var sum = arg1 + arg2;
+		alert(sum);
+	})(a, b);
+	</script>
+	
+	
+	
+	
+	
+	
 	</body>
-	
+
 </html>

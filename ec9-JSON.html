@@ -1,88 +1,83 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>JavaScript - Example 9</title>
-	</head>
-
 	<body>
-		<h2>Exercise 09 - Create JSON Object and Functions to Sort</h2>
-
-		<p id = "demo"></p>
+		
+		<button type="button" onclick="subjects();">Show Sorted Courses</button>
+		
 		<script>
-			
-			intCourseID = 0;
-			urlCS = 'https://api.svsu.edu/courses?prefix=CS';
-			urlCIS = 'https://api.svsu.edu/courses?prefix=CIS';
-			urlMATH = 'https://api.svsu.edu/courses?prefix=MATH';
-			urlPHIL = 'https://api.svsu.edu/courses?prefix=PHIL';
-
-			
-			function loadXMLDoc(url) 
-			{
-				var xhttp = new XMLHttpRequest();
-				xhttp.onreadystatechange = function() 
-				{
-					if (this.readyState == 4 && this.status == 200) 
-					{
-						var s1 = this.responseText;
-						var obj1 = JSON.parse(s1);
-						document.getElementById("demo").innerHTML +=
-						getTermsAndInstructors(obj1);
-					}
-				};
-				xhttp.open("GET", url, true);
-				xhttp.send();
-			}
-
-			function getTermsAndInstructors(obj)
-			{
-				//returns a string containing all terms and instructors from a JSON object
-				str = "";
-				if(obj.courses.length < 10)
-					return str;
-				else
-				{
-					for(var i = 0; i < 10; i++)
-					{
-						str += obj.courses[i].courseNumber + " " + obj.courses[i].prefix + "<br/>";
-						//arrCourses[intCourseID][i] = [obj.courses[i].prefix, obj.courses[i].courseNumber];
-						arrCourses[intCourseID][i]= obj.courses[i].courseNumber;
-					}
-					intCourseID++;
-					return str;
-				}				
-			}
-			
-			function sortCourseNumber()
-			{
-				for(var i = 0; i < 4; i++)
-				{
-					arrCourses[i].sort;
-				}
-			}
-
-			function printCourses()
-			{
-				document.getElementById("demo").innerHTML += arrCourses[0][0] + "<br/>";
-			
-				//for(var x = 0; x < 4; x++)
-				//	for(var y = 0; y < 10; y++)
-				//		document.getElementById("demo").innerHTML += arrCourses[0][0] + "<br/>";
-			}
-			
+				function subjects(){
+						var courses = [];
+						courses[0] = {
+							prefix: "CS",
+							courseNum: "105"
+						}
+						courses[1] = {
+							prefix: "CS",
+							courseNum: "116"
+						}
+						courses[2] = {
+							prefix: "CS",
+							courseNum: "216"
+						}
+						courses[3] = {
+							prefix: "CS",
+							courseNum: "316"
+						}
+						courses[4] = {
+							prefix: "CS",
+							courseNum: "245"
+						}
+						courses[5] = {
+							prefix: "CIS",
+							courseNum: "255"
+						}
+						courses[6] = {
+							prefix: "CIS",
+							courseNum: "355"
+						}
+						courses[7] = {
+							prefix: "CIS",
+							courseNum: "311"
+						}
+						courses[8] = {
+							prefix: "CS",
+							courseNum: "411"
+						}
 						
-			arrCourses = [[],[],[],[]];
+						courses[9] = {
+							prefix: "MATH",
+							courseNum: "161"
+						}
+						
+						courses[10] = {
+							prefix: "MATH",
+							courseNum: "300"
+						}	
+					
+						//sort by course prefix
+						courses = sortByKey(courses, 'prefix');
+						document.write("Sorted by Course  Type" + "<br>");
+						for(var i = 0; i < courses.length; i++){
+						document.write(courses[i].prefix + " " + courses[i].courseNum+ "<br />");
+						}
+						
+						//sort by course number
+						courses = sortByKey(courses, 'courseNum');
+						document.write("<br>" + "Sort by Course Number"  + "<br>");
+						for(var i = 0; i < courses.length; i++){
+						document.write(courses[i].prefix + " " + courses[i].courseNum + "<br />");
+						}
+				
+					}
+					
+					<!-- help from web -->
+					function sortByKey(array, key) {
+							return array.sort(function(x, y) {
+								var a = x[key]; var b = y[key];
+								return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+							});
+					}
 			
-			loadXMLDoc(urlCS);
-			loadXMLDoc(urlCIS);
-			loadXMLDoc(urlMATH);
-			loadXMLDoc(urlPHIL);
-			
-			sortCourseNumber();
-			printCourses();
-			document.getElementById("demo").innerHTML += arrCourses[0][0] + "<br/>";
-
 		</script>
+		
 	</body>
 </html>
